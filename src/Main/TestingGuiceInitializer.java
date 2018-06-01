@@ -1,5 +1,11 @@
 package  Main;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
+import Billing.BillingService;
+import Module.BillingModule;
+
 public class TestingGuiceInitializer {
 
     public TestingGuiceInitializer() {
@@ -7,8 +13,9 @@ public class TestingGuiceInitializer {
     }
 
     public static void main(String[] args) {
-       
-        
+       Injector injector = Guice.createInjector(new BillingModule());
+       BillingService billingService = injector.getInstance(BillingService.class);
+       billingService.chargeOrder();
 
     }
 

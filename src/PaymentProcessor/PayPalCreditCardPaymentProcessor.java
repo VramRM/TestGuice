@@ -3,14 +3,15 @@ package PaymentProcessor;
 import Reciept.Reciept;
 
 public class PayPalCreditCardPaymentProcessor implements CreditCardPaymentProcessor {
-
-    public PayPalCreditCardPaymentProcessor() {
-        // TODO Auto-generated constructor stub
+	String name;
+	
+    public PayPalCreditCardPaymentProcessor(String name) {
+    	this.name = name;
     }
 
     @Override
     public Reciept Process() {
-        // TODO Auto-generated method stub
+    	System.out.println("Processing " + this.name);
         return null;
     }
 
