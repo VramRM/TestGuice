@@ -11,7 +11,7 @@ public class BillingModule extends AbstractModule{
 	@Override
 	protected void configure() {
 		//bind(PaymentProcessor.class).to(PayPalCreditCardPaymentProcessor.class);
-		//bind(PaymentProcessor.class).annotatedWith(Names.named("PayPal")).toProvider(Providers.class);
+		//bind(PaymentProcessor.class).annotatedWith(Names.named("PayPal")).toProvider(ProcessorProvider.class);
 		//bind(PaymentProcessor.class).annotatedWith(Names.named("PayPal")).to(PayPalCreditCardPaymentProcessor.class);
 		//bind(PaymentProcessor.class).annotatedWith(Names.named("Visa")).toInstance(new VisaCreditCardPaymentProcessor());
 //		try {
@@ -23,10 +23,13 @@ public class BillingModule extends AbstractModule{
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
+		
+		
+		MapBinder
 	}
 	
 //	@Provides
-//	PayPalCreditCardPaymentProcessor getPayPalCreditCardPaymentProcessor() {
+//	PaymentProcessor getPayPalCreditCardPaymentProcessor() {
 //		return new PayPalCreditCardPaymentProcessor("Master Card Pay Pal");
 //	}
 
@@ -38,6 +41,7 @@ public class BillingModule extends AbstractModule{
 //.in
 //@Named("")
 //@Provides
+//@ProvidedBy
 //@Inject
 //@ImplementedBy()
 //Names.named("")
