@@ -1,12 +1,6 @@
 package Module;
 
 import com.google.inject.AbstractModule;
-import com.google.inject.Provides;
-import com.google.inject.name.Names;
-
-import PaymentProcessor.PayPalCreditCardPaymentProcessor;
-import PaymentProcessor.PaymentProcessor;
-import PaymentProcessor.VisaCreditCardPaymentProcessor;
 
 public class BillingModule extends AbstractModule{
 
@@ -17,16 +11,35 @@ public class BillingModule extends AbstractModule{
 	@Override
 	protected void configure() {
 		//bind(PaymentProcessor.class).to(PayPalCreditCardPaymentProcessor.class);
-		//bind(PaymentProcessor.class).annotatedWith(Names.named("Visa")).to(VisaCreditCardPaymentProcessor.class);
-		bind(PaymentProcessor.class).annotatedWith(Names.named("Visa")).toInstance(new VisaCreditCardPaymentProcessor());
-		
+		//bind(PaymentProcessor.class).annotatedWith(Names.named("PayPal")).toProvider(Providers.class);
+		//bind(PaymentProcessor.class).annotatedWith(Names.named("PayPal")).to(PayPalCreditCardPaymentProcessor.class);
+		//bind(PaymentProcessor.class).annotatedWith(Names.named("Visa")).toInstance(new VisaCreditCardPaymentProcessor());
+//		try {
+//			bind(PaymentProcessor.class).annotatedWith(Names.named("PayPal")).toConstructor(PayPalCreditCardPaymentProcessor.class.getConstructor(Logger.class, String.class,String.class));
+//		} catch (NoSuchMethodException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SecurityException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 	
-	@Provides
-	PayPalCreditCardPaymentProcessor getPayPalCreditCardPaymentProcessor() {
-		return new PayPalCreditCardPaymentProcessor("Master Card Pay Pal");
-	}
+//	@Provides
+//	PayPalCreditCardPaymentProcessor getPayPalCreditCardPaymentProcessor() {
+//		return new PayPalCreditCardPaymentProcessor("Master Card Pay Pal");
+//	}
 
-	
+//.to
+//.annotatedWith
+//.toConstructor
+//.toInstance
+//.toProvider
+//.in
+//@Named("")
+//@Provides
+//@Inject
+//@ImplementedBy()
+//Names.named("")
 
 }
